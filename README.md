@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https://github.com/dezirl/echocloud/releases/download/v1.1.0/banner.png" alt="EchoCloud" width="800" />
   <h1>EchoCloud</h1>
   <p>Cinema-grade SoundCloud desktop client for Windows</p>
 </div>
