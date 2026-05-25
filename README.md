@@ -7,7 +7,7 @@
 
 ## Download
 
-**[EchoCloud Setup 1.1.0.exe](https://github.com/dezirl/echocloud/releases/latest)** — Windows x64
+**[EchoCloud Setup 1.1.1.exe](https://github.com/dezirl/echocloud/releases/latest)** — Windows x64
 
 ---
 
