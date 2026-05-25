@@ -95,7 +95,7 @@ export default function Sidebar() {
               </div>
               <div className="flex flex-col min-w-0 flex-1">
                 <span className="text-[14px] font-semibold text-white truncate">{userSession.username}</span>
-                <span className="text-[10px] text-white/30 font-mono truncate">v1.2.0-alpha</span>
+                <span className="text-[10px] text-white/30 font-mono truncate">v1.1.4-alpha</span>
               </div>
               {userSession.isAuthenticated && userSession.scUserId && (
                 <User size={15} className="text-zinc-600 shrink-0" />
