@@ -300,6 +300,14 @@ app.whenReady().then(async () => {
 
   // Window controls
   ipcMain.on('update:install', () => autoUpdater.quitAndInstall());
+  ipcMain.handle('update:check', async () => {
+    try {
+      const result = await autoUpdater.checkForUpdates();
+      return { found: !!result?.updateInfo, version: result?.updateInfo?.version ?? null };
+    } catch (e: any) {
+      return { found: false, error: e?.message ?? 'Unknown error' };
+    }
+  });
 
   ipcMain.on('window:minimize', () => {
     // When mini player is active the window stays visible (not minimized)

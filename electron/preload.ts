@@ -103,6 +103,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     return () => ipcRenderer.removeAllListeners('update:downloaded');
   },
   installUpdate: () => ipcRenderer.send('update:install'),
+  checkForUpdates: () => ipcRenderer.invoke('update:check'),
 
   platform: process.platform,
   isElectron: true as const,

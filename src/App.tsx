@@ -161,8 +161,7 @@ export default function App() {
   const [selectedPlaylistId, setSelectedPlaylistId] = useState<string | null>(null);
   const [showCreatePlaylistModal, setShowCreatePlaylistModal] = useState(false);
   const [notifications, setNotifications] = useState<Notification[]>([]);
-  const [updateCountdown, setUpdateCountdown] = useState<number | null>(null);
-  const updateTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [updateReady, setUpdateReady] = useState(false);
 
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [loadingSections, setLoadingSections] = useState<Set<string>>(new Set());
@@ -296,17 +295,7 @@ export default function App() {
       triggerNotification('Update Available', 'Downloading new version in the background...');
     });
     const offDownloaded = window.electronAPI?.onUpdateDownloaded?.(() => {
-      setUpdateCountdown(8);
-      let secs = 8;
-      updateTimerRef.current = setInterval(() => {
-        secs -= 1;
-        setUpdateCountdown(secs);
-        if (secs <= 0) {
-          clearInterval(updateTimerRef.current!);
-          updateTimerRef.current = null;
-          window.electronAPI?.installUpdate();
-        }
-      }, 1000);
+      setUpdateReady(true);
     });
     return () => { offAvailable?.(); offDownloaded?.(); };
   }, []);
@@ -1502,8 +1491,26 @@ export default function App() {
                       </button>
                     </div>
 
-                    {/* Flush settings */}
-                    <div className="text-center pt-4">
+                    {/* Update check + Flush settings */}
+                    <div className="flex items-center justify-center gap-3 pt-4 flex-wrap">
+                      {window.electronAPI && (
+                        <button
+                          onClick={async () => {
+                            triggerNotification('Checking for updates…', 'Connecting to update server...');
+                            const res = await window.electronAPI!.checkForUpdates();
+                            if (res?.error) {
+                              triggerNotification('Update check failed', res.error);
+                            } else if (res?.found) {
+                              triggerNotification('Update found', `Version ${res.version} is downloading...`);
+                            } else {
+                              triggerNotification('Up to date', 'You are running the latest version.');
+                            }
+                          }}
+                          className="px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent text-xs font-bold border border-accent/20 rounded-xl transition-all cursor-pointer"
+                        >
+                          Check for Updates
+                        </button>
+                      )}
                       <button
                         onClick={() => {
                           useStore.setState({ tracks: tracks.map(t => ({ ...t, liked: false })) });
@@ -1567,7 +1574,7 @@ export default function App() {
 
       {/* Update ready banner */}
       <AnimatePresence>
-        {updateCountdown !== null && (
+        {updateReady && (
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -1578,26 +1585,18 @@ export default function App() {
           >
             <div className="flex flex-col min-w-0">
               <span className="text-xs font-bold text-white tracking-tight">Update ready</span>
-              <span className="text-[10px] text-zinc-400 mt-0.5">Restarting in {updateCountdown}s…</span>
+              <span className="text-[10px] text-zinc-400 mt-0.5">Restart to apply</span>
             </div>
             <button
-              onClick={() => {
-                if (updateTimerRef.current) clearInterval(updateTimerRef.current);
-                setUpdateCountdown(null);
-                window.electronAPI?.installUpdate();
-              }}
+              onClick={() => window.electronAPI?.installUpdate()}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-[11px] font-bold text-black cursor-pointer transition-all hover:opacity-90 shrink-0"
               style={{ background: '#ff6b00' }}
             >
               <RotateCcw size={11} />
-              Restart Now
+              Restart
             </button>
             <button
-              onClick={() => {
-                if (updateTimerRef.current) clearInterval(updateTimerRef.current);
-                updateTimerRef.current = null;
-                setUpdateCountdown(null);
-              }}
+              onClick={() => setUpdateReady(false)}
               className="text-zinc-500 hover:text-zinc-200 transition-colors cursor-pointer shrink-0"
             >
               <X size={14} />
