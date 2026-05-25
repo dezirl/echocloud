@@ -1,6 +1,15 @@
-# Ignore everything
-*
-
-# Except README
-!README.md
-!.gitignore
+node_modules/
+dist/
+dist-electron/
+build/
+release/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+*.exe
+*.dmg
+*.zip
+*.AppImage
+*.snap
