@@ -1,20 +1,30 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+  <img src="https://github.com/dezirl/echocloud/releases/download/v1.1.0/banner.png" alt="EchoCloud" width="800" />
+  <h1>EchoCloud</h1>
+  <p>Cinema-grade SoundCloud desktop client for Windows</p>
 </div>
 
-# Run and deploy your AI Studio app
+---
 
-This contains everything you need to run your app locally.
+## Download
 
-View your app in AI Studio: https://ai.studio/apps/8042c4a2-f0a9-43f0-a47e-511ac1ac5de5
+**[EchoCloud Setup 1.1.0.exe](https://github.com/dezirl/echocloud/releases/latest)** — Windows x64
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## Features
 
+- Full SoundCloud library — search, home feed, liked tracks, playlists
+- Fullscreen visualizer with beat-reactive album art
+- Built-in equalizer
+- Mini player mode (always on top)
+- Track downloads (MP3)
+- Auto-updates
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+## Installation
+
+1. Download the installer from [Releases](https://github.com/dezirl/echocloud/releases/latest)
+2. Run `EchoCloud Setup 1.1.0.exe`
+3. Launch EchoCloud from the desktop shortcut
