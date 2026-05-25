@@ -99,6 +99,8 @@ app.whenReady().then(async () => {
 
   // Check for updates after window is ready (only in production)
   if (app.isPackaged) {
+    autoUpdater.allowPrerelease = true;
+    autoUpdater.autoDownload = true;
     autoUpdater.checkForUpdates();
 
     autoUpdater.on('update-available', () => {
