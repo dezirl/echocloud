@@ -68,11 +68,11 @@ export default function Sidebar() {
           </nav>
 
           {/* Profile */}
-          <div className="p-3 border-t border-white/[0.05] bg-white/[0.01]">
+          <div className="border-t border-white/[0.05] bg-white/[0.01]">
             <div
-              className={`flex items-center gap-3 rounded-xl px-1.5 py-1 -mx-1.5 transition-colors ${
+              className={`flex items-center gap-3 px-4 py-4 transition-colors ${
                 userSession.isAuthenticated && userSession.scUserId
-                  ? 'cursor-pointer hover:bg-white/[0.05]'
+                  ? 'cursor-pointer hover:bg-white/[0.06]'
                   : ''
               }`}
               onClick={() => {
@@ -86,19 +86,19 @@ export default function Sidebar() {
                 <img
                   src={userSession.avatarUrl}
                   alt=""
-                  className={`w-8 h-8 rounded-full border object-cover ${userSession.isAuthenticated ? 'border-accent/40' : 'border-white/10'}`}
+                  className={`w-10 h-10 rounded-full border object-cover ${userSession.isAuthenticated ? 'border-accent/40' : 'border-white/10'}`}
                   referrerPolicy="no-referrer"
                 />
                 {userSession.isAuthenticated && (
-                  <span className="absolute bottom-0 right-0 w-2 h-2 bg-green-500 border border-black rounded-full" />
+                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-black rounded-full" />
                 )}
               </div>
               <div className="flex flex-col min-w-0 flex-1">
-                <span className="text-xs font-semibold text-white truncate">{userSession.username}</span>
-                <span className="text-[10px] text-white/30 font-mono truncate">v1.1.3-alpha</span>
+                <span className="text-[14px] font-semibold text-white truncate">{userSession.username}</span>
+                <span className="text-[10px] text-white/30 font-mono truncate">v1.2.0-alpha</span>
               </div>
               {userSession.isAuthenticated && userSession.scUserId && (
-                <User size={14} className="text-zinc-600 shrink-0" />
+                <User size={15} className="text-zinc-600 shrink-0" />
               )}
             </div>
           </div>

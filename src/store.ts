@@ -215,6 +215,18 @@ interface EchoCloudState {
   setEqQ: (q: number[]) => void;
   toggleEq: () => void;
 
+  // Playback FX
+  playbackRate: number;
+  setPlaybackRate: (rate: number) => void;
+  reverbEnabled: boolean;
+  reverbAmount: number;
+  reverbSize: number;
+  reverbDamp: number;
+  toggleReverb: () => void;
+  setReverbAmount: (amount: number) => void;
+  setReverbSize: (size: number) => void;
+  setReverbDamp: (damp: number) => void;
+
   // Downloads & Custom uploads states
   downloads: Array<{
     id: string;
@@ -228,7 +240,7 @@ interface EchoCloudState {
   // Actions
   setActiveTab: (tab: string) => void;
   setSearchQuery: (query: string) => void;
-  playTrack: (trackId: string) => void;
+  playTrack: (trackId: string, opts?: { preserveLockedQueue?: boolean }) => void;
   togglePlay: () => void;
   setPlaying: (playing: boolean) => void;
   nextTrack: () => void;
@@ -338,6 +350,11 @@ export const useStore = create<EchoCloudState>((set, get) => ({
   eqBands: [0, 0, 0, 0, 0],
   eqQ: [1.0, 1.0, 1.0, 1.0, 1.0],
   eqEnabled: false,
+  playbackRate: 1.0,
+  reverbEnabled: false,
+  reverbAmount: 0.5,
+  reverbSize: 0.5,
+  reverbDamp: 0.3,
 
   downloads: [],
 
@@ -356,8 +373,13 @@ export const useStore = create<EchoCloudState>((set, get) => ({
   setEqBands: (bands) => set({ eqBands: bands }),
   setEqQ: (q) => set({ eqQ: q }),
   toggleEq: () => set((state) => ({ eqEnabled: !state.eqEnabled })),
+  setPlaybackRate: (rate) => set({ playbackRate: rate }),
+  toggleReverb: () => set((state) => ({ reverbEnabled: !state.reverbEnabled })),
+  setReverbAmount: (amount) => set({ reverbAmount: amount }),
+  setReverbSize: (size) => set({ reverbSize: size }),
+  setReverbDamp: (damp) => set({ reverbDamp: damp }),
 
-  playTrack: async (trackId) => {
+  playTrack: async (trackId, opts) => {
     const { tracks, interceptorActive, addInterceptorLog } = get();
     const trackObj = tracks.find(t => t.id === trackId);
     if (!trackObj) return;
@@ -413,7 +435,9 @@ export const useStore = create<EchoCloudState>((set, get) => ({
     set((state) => {
       let updatedQueue = [...state.queue];
       if (!updatedQueue.includes(trackId)) updatedQueue = [...updatedQueue, trackId];
-      const snap = state.contextQueue.length > 0 ? state.contextQueue : updatedQueue;
+      const snap = (opts?.preserveLockedQueue && state.lockedQueue.length > 0)
+        ? state.lockedQueue
+        : (state.contextQueue.length > 0 ? state.contextQueue : updatedQueue);
       return { currentTrackId: trackId, isPlaying: true, currentTime: 0, queue: updatedQueue, lockedQueue: snap };
     });
   },
@@ -458,7 +482,7 @@ export const useStore = create<EchoCloudState>((set, get) => ({
       if (nextIdx >= src.length) nextIdx = isRepeat === 'all' ? 0 : -1;
     }
 
-    if (nextIdx !== -1) playTrack(src[nextIdx]);
+    if (nextIdx !== -1) playTrack(src[nextIdx], { preserveLockedQueue: true });
     else set({ isPlaying: false });
   },
 
@@ -481,7 +505,7 @@ export const useStore = create<EchoCloudState>((set, get) => ({
       if (prevIdx < 0) prevIdx = src.length - 1;
     }
 
-    playTrack(src[prevIdx]);
+    playTrack(src[prevIdx], { preserveLockedQueue: true });
   },
 
   setCurrentTime: (time) => set({ currentTime: time }),
