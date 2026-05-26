@@ -8,28 +8,8 @@ coverage/
 *.log
 .env*
 !.env.example
-
-# Source code — not published
-src/
-electron/
-scripts/
-logo/
-public/
-
-# Config / build files
-package.json
-package-lock.json
-tsconfig*.json
-vite.config.*
-tailwind.config.*
-postcss.config.*
-electron-builder.json
-index.html
-server.ts
-metadata.json
 *.exe
 *.dmg
 *.zip
 *.AppImage
 *.snap
-*.blockmap
