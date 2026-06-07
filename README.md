@@ -1,12 +1,12 @@
 <div align="center">
 
+<img src="./EchoCloud%20ICO.png" alt="EchoCloud Logo" width="140">
+
 # EchoCloud
 
 ### 🎵 Modern SoundCloud Desktop Experience for Windows
 
-A fast, beautiful, and feature-rich desktop client built for SoundCloud listeners and creators.
-
-Enjoy your music with a native desktop experience, immersive fullscreen visualizations, advanced audio controls, background playback, downloads, and seamless account integration.
+A fast, beautiful, and feature-rich desktop client for SoundCloud.
 
 [⬇️ Download Latest Release](https://github.com/dezirl/echocloud/releases/latest)
 
