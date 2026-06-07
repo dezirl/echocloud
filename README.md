@@ -1,54 +1,74 @@
-```md
 <div align="center">
 
 # EchoCloud
 
-### 🎵 Cinema-grade SoundCloud desktop client for Windows
+### 🎵 Modern SoundCloud Desktop Experience for Windows
 
-Immersive visuals. Powerful audio controls. Built for music lovers.
+A fast, beautiful, and feature-rich desktop client built for SoundCloud listeners and creators.
+
+Enjoy your music with a native desktop experience, immersive fullscreen visualizations, advanced audio controls, background playback, downloads, and seamless account integration.
+
+[⬇️ Download Latest Release](https://github.com/dezirl/echocloud/releases/latest)
 
 </div>
 
 ---
 
-## ✨ About
+## ✨ Features
 
-EchoCloud transforms SoundCloud into a premium desktop experience designed specifically for Windows.
+### 🎧 Complete SoundCloud Experience
 
-Enjoy your entire SoundCloud library with a beautiful native interface, fullscreen visualizations, advanced audio controls, and seamless playback — all in one modern application.
+* Home feed, search, playlists, likes, and library
+* Full account support with improved authentication
+* Track likes and user follows fully supported
+
+### 🎨 Immersive Interface
+
+* Cinema-grade fullscreen visualizer
+* Beat-reactive album artwork
+* Modern desktop-focused UI
+
+### 🔊 Advanced Audio
+
+* Built-in equalizer
+* High-quality playback
+* Background audio support
+
+### ⚡ Performance
+
+* Optimized memory usage
+* Faster statistics loading
+* Intelligent disk caching
+* Automatic background preloading
+
+### 🖥️ Desktop Features
+
+* Mini Player mode (Always on Top)
+* MP3 track downloads
+* Automatic updates
+* Native Windows integration
 
 ---
 
-## 🚀 Download
+## 📥 Installation
 
-**Latest version:**  
-https://github.com/dezirl/echocloud/releases/latest
-
----
-
-## 🎧 Features
-
-- Full SoundCloud integration
-- Home feed, search, likes, and playlists
-- Fullscreen visualizer with beat-reactive album artwork
-- Built-in audio equalizer
-- Mini Player mode (always on top)
-- MP3 track downloads
-- Automatic updates
-- Native Windows experience
+1. Download the latest version from the Releases page.
+2. Run the installer.
+3. Launch EchoCloud and sign in to your SoundCloud account.
 
 ---
 
-## 📦 Installation
+## 🚀 Latest Updates
 
-1. Download the latest installer from the Releases page.
-2. Run `EchoCloud Setup.exe`.
-3. Complete the installation.
-4. Launch EchoCloud and start listening.
+* New authentication method
+* Likes and follows fully operational
+* Faster statistics loading
+* Reduced RAM usage
+* Improved caching system
+* Enhanced overall stability
 
 ---
 
-## 💙 Built for SoundCloud listeners
-
-Discover, organize, and enjoy your music with a desktop experience that feels fast, immersive, and truly native to Windows.
-```
+<p align="center">
+Made with ❤️ for the SoundCloud community.
+</p>
