@@ -12,7 +12,7 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev)
 [![Rust](https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white)](https://www.rust-lang.org)
 
-<img src="docs/screenshots/hero.png" width="100%" alt="Главный экран EchoCloud">
+<img src="screenshots/hero.png" width="100%" alt="Главный экран EchoCloud">
 
 </div>
 
@@ -32,51 +32,51 @@
 
 Поиск по трекам, артистам, плейлистам и альбомам, домашняя лента с подборками, лайки, свои и чужие плейлисты, страницы артистов со статистикой.
 
-<img src="docs/screenshots/home.png" width="100%" alt="Главная">
+<img src="screenshots/home.png" width="100%" alt="Главная">
 
-<img src="docs/screenshots/search.png" width="100%" alt="Поиск">
+<img src="screenshots/search.png" width="100%" alt="Поиск">
 
 ### Полноэкранный плеер
 
 Визуализатор на весь экран, реагирующий на спектр в реальном времени, обложка на фоне, несколько режимов отрисовки и настройка интенсивности со скоростью.
 
-<img src="docs/screenshots/fullscreen.png" width="100%" alt="Полноэкранный плеер">
+<img src="screenshots/fullscreen.png" width="100%" alt="Полноэкранный плеер">
 
 ### EchoWaves
 
 Бесконечный поток треков, подобранных по звучанию, а не по тегам. Три профиля подбора: всё вперемешку, андеграунд SoundCloud и популярные исполнители. Чем дольше слушаешь, тем точнее попадает.
 
-<img src="docs/screenshots/echowaves.png" width="100%" alt="EchoWaves">
+<img src="screenshots/echowaves.png" width="100%" alt="EchoWaves">
 
 ### Текст песни
 
 Синхронный построчный текст на движке Apple Music Like Lyrics — с подсветкой активной строки и посимвольной анимацией там, где разметка это позволяет.
 
-<img src="docs/screenshots/lyrics.png" width="100%" alt="Текст песни">
+<img src="screenshots/lyrics.png" width="100%" alt="Текст песни">
 
 ### AutoMix
 
 Переходы между треками как у диджея, а не встык. Стык просчитывается заранее в `OfflineAudioContext` — многополосное сведение с автоматикой эквалайзера и опциональным ревером, так что переход звучит одинаково ровно даже на слабой машине. Если просчитать не успели, включается живой кроссфейд.
 
-<img src="docs/screenshots/automix.png" width="100%" alt="Настройки AutoMix">
+<img src="screenshots/automix.png" width="100%" alt="Настройки AutoMix">
 
 ### Оверлей для OBS
 
 Обложка, название и живая волна прямо в стриме — и ничего из этого не появляется на твоём экране. Виджет отдаётся локальным сервером, в OBS добавляется как источник «Браузер». Два оформления, настройка прозрачности и превью прямо в настройках: в окне крутится ровно та страница, которую увидит OBS.
 
-<img src="docs/screenshots/obs.png" width="100%" alt="Оверлей для OBS">
+<img src="screenshots/obs.png" width="100%" alt="Оверлей для OBS">
 
 ### Друзья и чат
 
 Список друзей со статусом онлайн, личные сообщения, голосовые, отправка треков в чат прямо из плеера.
 
-<img src="docs/screenshots/friends.png" width="100%" alt="Друзья и чат">
+<img src="screenshots/friends.png" width="100%" alt="Друзья и чат">
 
 ### Под себя
 
 Темы оформления, живые обои из своего видео, персонажи и картинки в шапке и навбаре, прозрачность карточек, выбор стиля полосы прокрутки.
 
-<img src="docs/screenshots/settings.png" width="100%" alt="Персонализация">
+<img src="screenshots/settings.png" width="100%" alt="Персонализация">
 
 ---
 
