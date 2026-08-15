@@ -129,23 +129,7 @@ chmod +x EchoCloud_3.0.0_amd64.AppImage && ./EchoCloud_3.0.0_amd64.AppImage
 
 **Интерфейс** — React 19, TypeScript, Vite 6, Tailwind CSS 4, zustand для состояния, Motion для анимаций.
 
-**Звук** — Web Audio API: графы эффектов, анализаторы для визуализаторов, `OfflineAudioContext` для просчёта переходов. Meyda и web-audio-beat-detector — для разбора трека на признаки, Apple Music Like Lyrics — для текста песни.
-
----
-
-## Скриншоты для этого файла
-
-Кадры снимаются скриптом с запущенного приложения — он находит окно EchoCloud, выносит вперёд и снимает ровно его, без рабочего стола и панели задач:
-
-```bash
-powershell -ExecutionPolicy Bypass -File tools/capture-screenshots.ps1 -All
-```
-
-Скрипт по очереди подскажет, какой экран открыть, и разложит файлы по именам, которых ждёт README. Один кадр отдельно:
-
-```bash
-powershell -ExecutionPolicy Bypass -File tools/capture-screenshots.ps1 fullscreen
-```
+**Звук** — Web Audio API: графы эффектов, анализаторы для визуализаторов, `OfflineAudioContext` для просчёта переходов. Meyda и web-audio-beat-detector — для разбора трека на признаки.
 
 ---
 
