@@ -123,35 +123,6 @@ chmod +x EchoCloud_3.0.0_amd64.AppImage && ./EchoCloud_3.0.0_amd64.AppImage
 
 ---
 
-## Сборка из исходников
-
-Нужны [Node.js 18+](https://nodejs.org), [Rust](https://rustup.rs) и системные зависимости Tauri для твоей ОС — список в [документации Tauri](https://tauri.app/start/prerequisites/).
-
-```bash
-npm install
-npm run dev
-```
-
-Сборка установщика под текущую платформу:
-
-```bash
-npm run build
-```
-
-Готовые пакеты окажутся в `src-tauri/target/release/bundle/`.
-
-Отдельные команды:
-
-```bash
-npm run dev:vite     # только фронтенд, без нативной оболочки
-npm run build:vite   # только сборка фронтенда
-npm run lint         # проверка типов
-```
-
-Сборка сразу под все три платформы собирается в GitHub Actions — workflow лежит в [`.github/workflows/build.yml`](.github/workflows/build.yml).
-
----
-
 ## Стек
 
 **Оболочка** — Tauri 2 (Rust): сеть, аудиопрокси, работа с файлами, глобальные горячие клавиши, трей, автообновления.
